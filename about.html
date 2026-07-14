@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Ivy Pastry Bloom</title>
+  <!-- fonts & minimal style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f2;
+      color: #1f1e1b;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    /* typography */
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-bottom: 2px solid #e3d9ce;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      max-width: 70ch;
+    }
+
+    .meta-text {
+      font-size: 0.9rem;
+      color: #5e5a54;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* header / nav */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 0.5rem;
+      border-bottom: 1px solid #ddd6cb;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      color: #2c241b;
+    }
+
+    .logo span {
+      color: #9b7b5e;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c241b;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #9b7b5e;
+      color: #1f1e1b;
+    }
+
+    /* about hero */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin: 3rem 0 4rem;
+      align-items: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-hero .subhead {
+      font-size: 1.2rem;
+      color: #3d352c;
+      max-width: 65ch;
+      margin: 0.5rem 0 1.5rem;
+      font-weight: 350;
+    }
+
+    .hero-image {
+      background: #e5ddd2;
+      height: 200px;
+      border-radius: 30px 30px 30px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3d352c;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" ><rect width="100" height="100" fill="%23e5ddd2"/><text x="10" y="55" font-family="Inter" font-size="14" fill="%235a4f44">🌾 · about us</text></svg>');
+      background-size: cover;
+      background-blend-mode: overlay;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #d2c8bb;
+    }
+
+    /* mission / values */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .mission-card {
+      background: white;
+      border-radius: 24px 24px 24px 4px;
+      padding: 2rem 1.8rem;
+      border: 1px solid #e7dfd4;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .mission-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .team-card {
+      background: white;
+      padding: 1.8rem 1.5rem;
+      border-radius: 30px 8px 30px 8px;
+      border: 1px solid #e3d9ce;
+      text-align: center;
+    }
+
+    .team-card .avatar {
+      font-size: 2.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    .team-card .role {
+      font-size: 0.8rem;
+      color: #7a6b5c;
+      font-weight: 500;
+    }
+
+    .timeline-block {
+      background: #ece4d9;
+      padding: 2rem 2.5rem;
+      border-radius: 40px 8px 40px 8px;
+      margin: 2.5rem 0;
+      border: 1px solid #d5c9bb;
+    }
+
+    .timeline-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-block li {
+      padding: 0.6rem 0;
+      border-bottom: 1px dotted #cbb8a6;
+      display: flex;
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+
+    .timeline-block .year {
+      font-weight: 600;
+      color: #4d3f32;
+      min-width: 4rem;
+    }
+
+    .badge {
+      background: #dacfc2;
+      color: #1f1e1b;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      display: inline-block;
+    }
+
+    .footer {
+      border-top: 1px solid #ddd6cb;
+      padding: 2rem 0 1rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: #3d352c;
+    }
+
+    .footer a {
+      color: #3d352c;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .footer a:hover {
+      border-bottom-color: #7a5f47;
+    }
+
+    @media (max-width: 800px) {
+      .about-hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .site-header {
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      h1 {
+        font-size: 2.6rem;
+      }
+      .timeline-block li {
+        flex-wrap: wrap;
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="logo">Ivy <span>Pastry</span> Bloom</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" style="border-bottom-color: #9b7b5e;">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+    </div>
+  </header>
+
+  <!-- about hero -->
+  <section class="about-hero">
+    <div>
+      <h1>Where craft meets curiosity</h1>
+      <p class="subhead">Ivy Pastry Bloom is a journal for bakers who believe that pastry is both art and science. We explore the how and why behind every fold, every temperature, every bite.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem;">
+        <span class="badge" style="background: #d2c3b3;">founded 2020</span>
+        <span class="badge" style="background: #d2c3b3;">community</span>
+        <span class="badge" style="background: #d2c3b3;">technique first</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <span style="background: rgba(255,255,240,0.5); padding: 0.5rem 1.2rem; border-radius: 80px; backdrop-filter: blur(2px);">📖  since 2020</span>
+    </div>
+  </section>
+
+  <!-- mission / values -->
+  <h2>Our philosophy</h2>
+  <div class="mission-grid">
+    <div class="mission-card">
+      <h3>🧈 Precision</h3>
+      <p>We measure, test, and document. Pastry is chemistry — we embrace it with clarity and respect.</p>
+    </div>
+    <div class="mission-card">
+      <h3>🌾 Curiosity</h3>
+      <p>Why does butter behave this way? How does fermentation change flavor? We ask, then we bake.</p>
+    </div>
+    <div class="mission-card">
+      <h3>🤝 Community</h3>
+      <p>From home bakers to professionals, we share knowledge that elevates every kitchen.</p>
+    </div>
+  </div>
+
+  <!-- story & timeline -->
+  <h2>Our story</h2>
+  <div class="timeline-block">
+    <ul>
+      <li><span class="year">2020</span> <span>Started as a small newsletter for pastry nerds — 200 subscribers.</span></li>
+      <li><span class="year">2021</span> <span>First deep-dive guide on croissant lamination published; went viral in baking circles.</span></li>
+      <li><span class="year">2023</span> <span>Launched the resource hub with calculators, charts, and downloadable checklists.</span></li>
+      <li><span class="year">2025</span> <span>Expanded to video tutorials and partnered with artisan mills and chocolate makers.</span></li>
+      <li><span class="year">2026</span> <span>Today: a global community of bakers, 40+ in-depth guides, and a shared love for the craft.</span></li>
+    </ul>
+  </div>
+
+  <!-- team -->
+  <h2>Meet the team</h2>
+  <p style="max-width: 60ch;">We are bakers, writers, and educators. Each of us brings a different lens to the pastry world.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="avatar">👩‍🍳</div>
+      <h4>Elena Rossi</h4>
+      <div class="role">Founder &amp; Head Baker</div>
+      <p style="font-size:0.85rem; margin-top:0.3rem;">Viennoiserie, fermentation</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">🧑‍🔬</div>
+      <h4>Marcus Chen</h4>
+      <div class="role">Pastry Scientist</div>
+      <p style="font-size:0.85rem; margin-top:0.3rem;">Chocolate, emulsions</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">👨‍🌾</div>
+      <h4>Sophie Dubois</h4>
+      <div class="role">Ingredient Specialist</div>
+      <p style="font-size:0.85rem; margin-top:0.3rem;">Flour, butter, terroir</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">📝</div>
+      <h4>James Park</h4>
+      <div class="role">Editor &amp; Community</div>
+      <p style="font-size:0.85rem; margin-top:0.3rem;">Words, events, connection</p>
+    </div>
+  </div>
+
+  <!-- what we believe + stats -->
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; margin: 2.5rem 0;">
+    <div>
+      <h2 style="margin-top:0;">What we believe</h2>
+      <p>Great pastry is not about perfection — it’s about understanding. We believe in demystifying technique so that every baker can make informed decisions. Whether you’re folding butter into dough for the first time or troubleshooting a ganache, we’re here with clear, tested advice.</p>
+      <p>We also believe in sustainability: sourcing transparently, reducing waste, and respecting the ingredients that make our craft possible.</p>
+    </div>
+    <div style="background: #ece4d9; padding: 2rem 1.8rem; border-radius: 40px 8px 40px 8px; border: 1px solid #d5c9bb; align-self: start;">
+      <h3 style="margin-top:0;">📊 By the numbers</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 0.5rem 0; border-bottom: 1px dotted #cbb8a6;"><strong>78</strong> in-depth guides</li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px dotted #cbb8a6;"><strong>12k+</strong> subscribers</li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px dotted #cbb8a6;"><strong>34</strong> countries reached</li>
+        <li style="padding: 0.5rem 0;"><strong>5</strong> years of baking exploration</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- join / newsletter (light) -->
+  <div style="background: #2c241b; color: #f0ebe4; padding: 2.5rem 3rem; border-radius: 60px 16px 60px 16px; margin: 2rem 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <div>
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 2rem; margin:0; color: #f0ebe4;">Join the bloom</h3>
+      <p style="color: #d6cdc1; max-width: 35ch; margin: 0.2rem 0 0;">Get weekly insights straight to your inbox.</p>
+    </div>
+    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem;">
+      <input type="email" placeholder="your email" style="padding: 0.8rem 1.5rem; border: none; border-radius: 60px; background: #f0ebe4; font-family: 'Inter', sans-serif; min-width: 180px;">
+      <button style="background: #b0977f; border: none; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 600; color: #1f1e1b; cursor: pointer; transition: 0.2s;">Subscribe</button>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div>© 2026 Ivy Pastry Bloom · crafted with flour &amp; care</div>
+    <div><a href="#">About</a> · <a href="#">Privacy</a> · <a href="#">Contact</a> · <a href="#">Archive</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

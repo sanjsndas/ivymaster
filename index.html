@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivy Pastry Bloom · Art of the craft</title>
+  <!-- fonts & minimal style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f2;
+      color: #1f1e1b;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    /* typography */
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-bottom: 2px solid #e3d9ce;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      max-width: 70ch;
+    }
+
+    .meta-text {
+      font-size: 0.9rem;
+      color: #5e5a54;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* header / nav */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 0.5rem;
+      border-bottom: 1px solid #ddd6cb;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      color: #2c241b;
+    }
+
+    .logo span {
+      color: #9b7b5e;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c241b;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #9b7b5e;
+      color: #1f1e1b;
+    }
+
+    /* hero */
+    .hero {
+      margin: 3rem 0 4rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-content h1 {
+      font-size: 3.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content .subhead {
+      font-size: 1.2rem;
+      color: #3d352c;
+      max-width: 65ch;
+      margin: 0.5rem 0 1.5rem;
+      font-weight: 350;
+    }
+
+    .hero-image {
+      background: #e5ddd2;
+      height: 220px;
+      border-radius: 30px 30px 30px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3d352c;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" ><rect width="100" height="100" fill="%23e5ddd2"/><text x="10" y="55" font-family="Inter" font-size="14" fill="%235a4f44">📖 · pastry artisan</text></svg>');
+      background-size: cover;
+      background-blend-mode: overlay;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #d2c8bb;
+    }
+
+    .featured-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .featured-topics span {
+      background: #ece5dc;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2c241b;
+    }
+
+    /* grid cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 24px 24px 24px 4px;
+      padding: 1.8rem 1.8rem 2.2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      border: 1px solid #e7dfd4;
+      transition: 0.2s;
+    }
+
+    .article-card:hover {
+      border-color: #cbb8a6;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+    }
+
+    .article-card .card-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9b7b5e;
+      font-weight: 600;
+      border-bottom: 1px solid #ede6dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .article-card h3 {
+      font-size: 1.5rem;
+      margin: 0.2rem 0 0.6rem;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+    }
+
+    .article-card p {
+      font-size: 0.95rem;
+      color: #2f2b26;
+      margin-bottom: 1rem;
+    }
+
+    .read-more {
+      font-weight: 600;
+      color: #7a5f47;
+      text-decoration: none;
+      border-bottom: 1px solid #dacfc2;
+      padding-bottom: 0.1rem;
+    }
+
+    .read-more:hover {
+      border-bottom-color: #7a5f47;
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 140px;
+      background: #dcd2c5;
+      border-radius: 18px 18px 4px 18px;
+      margin: 0.5rem 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4d4135;
+      font-size: 0.9rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="%23dcd2c5"/><text x="20" y="55" font-family="Inter" font-size="12" fill="%235a4f44">🧁  article image</text></svg>');
+      background-size: cover;
+    }
+
+    .infographic-block {
+      background: #ece4d9;
+      padding: 2rem 2.5rem;
+      border-radius: 40px 8px 40px 8px;
+      margin: 3rem 0;
+      border: 1px solid #d5c9bb;
+    }
+
+    .infographic-block h3 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+    .infographic-block ul {
+      columns: 2;
+      column-gap: 2.5rem;
+      list-style: none;
+      padding: 0.5rem 0;
+    }
+
+    .infographic-block li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dotted #cbb8a6;
+    }
+
+    /* two column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin: 2.5rem 0;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid #ddd6cb;
+      padding: 1.2rem 0;
+    }
+
+    .faq-item h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item p {
+      margin-bottom: 0.2rem;
+      font-size: 0.98rem;
+      color: #3d352c;
+    }
+
+    /* newsletter */
+    .newsletter {
+      background: #2c241b;
+      color: #f0ebe4;
+      padding: 2.8rem 3rem;
+      border-radius: 60px 16px 60px 16px;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .newsletter h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin: 0;
+      color: #f0ebe4;
+    }
+
+    .newsletter p {
+      max-width: 40ch;
+      color: #d6cdc1;
+    }
+
+    .newsletter input {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 60px;
+      background: #f0ebe4;
+      font-family: 'Inter', sans-serif;
+      min-width: 200px;
+    }
+
+    .newsletter button {
+      background: #b0977f;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1f1e1b;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .newsletter button:hover {
+      background: #cbb8a6;
+    }
+
+    /* footer */
+    .footer {
+      border-top: 1px solid #ddd6cb;
+      padding: 2rem 0 1rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: #3d352c;
+    }
+
+    .footer a {
+      color: #3d352c;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .footer a:hover {
+      border-bottom-color: #7a5f47;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .newsletter {
+        flex-direction: column;
+        align-items: start;
+        gap: 1.5rem;
+      }
+      .infographic-block ul {
+        columns: 1;
+      }
+      h1 {
+        font-size: 2.6rem;
+      }
+      .site-header {
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    /* unique touches */
+    .badge {
+      background: #dacfc2;
+      color: #1f1e1b;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      display: inline-block;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3d9ce;
+      margin: 2rem 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 16px;
+      border-style: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    th, td {
+      padding: 0.8rem 1rem;
+      border: 1px solid #e3d9ce;
+      text-align: left;
+    }
+
+    th {
+      background: #ede6dc;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="logo">Ivy <span>Pastry</span> Bloom</div>
+    <div class="nav-links">
+     <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Flour, butter, &amp; curiosity</h1>
+      <p class="subhead">A pastry journal for the thoughtful baker — from lamination to fermentation, we explore the craft with depth, precision, and a pinch of wonder.</p>
+      <div class="featured-topics">
+        <span>Croissant science</span>
+        <span>Viennoiserie</span>
+        <span>Sourdough pastry</span>
+        <span>Chocolate tempering</span>
+        <span>Pâte à choux</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- 1. hero image (decorative) -->
+      <span style="background: rgba(255,255,240,0.5); padding: 0.5rem 1.2rem; border-radius: 80px; backdrop-filter: blur(2px);">🍰  craft &amp; science</span>
+    </div>
+  </section>
+
+  <!-- 2. featured articles -->
+  <h2>Featured articles</h2>
+  <div class="card-grid">
+    <div class="article-card">
+      <div class="card-category">Technique</div>
+      <div class="featured-image"></div>
+      <h3>Lamination: the geometry of butter</h3>
+      <p>Understanding dough relaxation, butter plasticity, and the perfect 27-layer croissant. A deep dive with practical temperature tables.</p>
+      <a href="#" class="read-more">Read more →</a>
+    </div>
+    <div class="article-card">
+      <div class="card-category">Ingredients</div>
+      <div class="featured-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23dcd2c5%22/><text x=%2215%22 y=%2255%22 font-family=%22Inter%22 font-size=%2212%22 fill=%22%235a4f44%22>🍫  featured</text></svg>');"></div>
+      <h3>Single-origin chocolate: from bean to ganache</h3>
+      <p>Flavor profiles, tempering curves, and how origin affects structure. Includes a comparison table of 5 origins.</p>
+      <a href="#" class="read-more">Read more →</a>
+    </div>
+    <div class="article-card">
+      <div class="card-category">Masterclass</div>
+      <div class="featured-image"></div>
+      <h3>Pâte à choux: the science of steam</h3>
+      <p>Why hydration, oven spring, and egg incorporation create the perfect craquelin. Step-by-step with troubleshooting.</p>
+      <a href="#" class="read-more">Read more →</a>
+    </div>
+  </div>
+
+  <!-- 3. beginner guides + 4. expert resources (two-col) -->
+  <div class="two-col">
+    <div>
+      <h2>Beginner guides</h2>
+      <div class="article-card" style="margin-bottom: 1.5rem;">
+        <h3 style="margin-top:0;">Your first sourdough pastry</h3>
+        <p>Start with a simple overnight preferment. We guide you through mixing, folds, and shaping with minimal equipment.</p>
+        <a href="#" class="read-more">Start here →</a>
+      </div>
+      <div class="article-card">
+        <h3 style="margin-top:0;">Butter 101: European vs. American</h3>
+        <p>Fat content, water percentage, and how it impacts lamination and flavor. A practical guide for the home baker.</p>
+        <a href="#" class="read-more">Read →</a>
+      </div>
+    </div>
+    <div>
+      <h2>Expert resources</h2>
+      <div class="article-card" style="margin-bottom: 1.5rem;">
+        <h3 style="margin-top:0;">Fermentation &amp; pastry</h3>
+        <p>Advanced cold fermentation schedules for viennoiserie. Tables with time/temperature correlations.</p>
+        <a href="#" class="read-more">Deep dive →</a>
+      </div>
+      <div class="article-card">
+        <h3 style="margin-top:0;">Sugar crystallization control</h3>
+        <p>From caramel to meringue: the role of invert sugars and acid. A technical reference for professionals.</p>
+        <a href="#" class="read-more">Explore →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. categories + 6. trending -->
+  <h2>Popular categories</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.5rem 0 2rem;">
+    <span class="badge" style="background: #d2c3b3;">Viennoiserie</span>
+    <span class="badge" style="background: #d2c3b3;">Sourdough</span>
+    <span class="badge" style="background: #d2c3b3;">Chocolate</span>
+    <span class="badge" style="background: #d2c3b3;">Pâte à choux</span>
+    <span class="badge" style="background: #d2c3b3;">Tart &amp; frangipane</span>
+    <span class="badge" style="background: #d2c3b3;">Lamination</span>
+    <span class="badge" style="background: #d2c3b3;">Caramel</span>
+  </div>
+
+  <h2>Trending topics</h2>
+  <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+    <div class="article-card"><h3 style="font-size:1.2rem;">Whole grain croissant</h3><p>Fresh milling, hydration adjustments.</p></div>
+    <div class="article-card"><h3 style="font-size:1.2rem;">Plant-based butter</h3><p>Performance and flavor in laminated dough.</p></div>
+    <div class="article-card"><h3 style="font-size:1.2rem;">High-altitude pastry</h3><p>Adjustments for air pressure &amp; oven.</p></div>
+  </div>
+
+  <!-- 7. latest articles -->
+  <h2>Latest articles</h2>
+  <div class="card-grid">
+    <div class="article-card"><span class="meta-text">April 2026</span><h3>Gluten development in enriched doughs</h3><p>Kneading vs. autolyse: a practical test.</p></div>
+    <div class="article-card"><span class="meta-text">April 2026</span><h3>Milk powder in pastry: why it matters</h3><p>Maillard, color, and moisture retention.</p></div>
+    <div class="article-card"><span class="meta-text">March 2026</span><h3>Seasonal fruit &amp; pastry pairings</h3><p>Rhubarb, stone fruit, and citrus.</p></div>
+  </div>
+
+  <!-- 8. in-depth tutorials & 9. resource hub (infographic) -->
+  <div class="two-col">
+    <div>
+      <h2>In-depth tutorials</h2>
+      <div class="article-card"><h3>Croissant: from détrempe to baking</h3><p>Full photographic guide with time-lapse tips. 2200 words, 7 checkpoints.</p></div>
+      <div class="article-card"><h3>Ganache emulsions</h3><p>Water-in-oil vs. oil-in-water, stability and shine.</p></div>
+    </div>
+    <div>
+      <h2>Resource hub</h2>
+      <div class="infographic-block" style="margin-top:0;">
+        <h3 style="margin-top:0;">☕  quick reference</h3>
+        <ul>
+          <li>Butter temperature guide</li>
+          <li>Oven spring chart</li>
+          <li>Hydration calculator</li>
+          <li>Sugar substitution table</li>
+          <li>Flour protein comparison</li>
+          <li>Proofing time estimator</li>
+        </ul>
+        <p style="margin-bottom:0; font-size:0.9rem;">Downloadable PDFs &amp; checklists.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. FAQ section -->
+  <h2>Frequently asked questions</h2>
+  <div class="faq-item"><h4>Why does my croissant lose lamination?</h4><p>Butter temperature and dough relaxation are key. Ensure butter is pliable (around 14-16°C) and rest between folds.</p></div>
+  <div class="faq-item"><h4>Can I substitute sourdough for commercial yeast in viennoiserie?</h4><p>Yes, but expect longer fermentation and adjust hydration. We have a full guide in our fermentation series.</p></div>
+  <div class="faq-item"><h4>How do I prevent chocolate bloom?</h4><p>Proper tempering and storage at 18-20°C, away from moisture. Our tempering table gives exact cooling curves.</p></div>
+
+  <!-- 11. newsletter -->
+  <div class="newsletter">
+    <div><h3>The Bloom letter</h3><p>Weekly pastry insights, recipes, and technique notes. Unsubscribe anytime.</p></div>
+    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;"><input type="email" placeholder="your email" style="flex:1;"><button>Subscribe</button></div>
+  </div>
+
+  <!-- 12. footer -->
+  <footer class="footer">
+    <div>© 2026 Ivy Pastry Bloom · crafted with flour &amp; care</div>
+    <div><a href="#">About</a> · <a href="#">Privacy</a> · <a href="#">Contact</a> · <a href="#">Archive</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
